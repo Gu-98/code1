@@ -3,12 +3,12 @@ $(function () {
 
 
     $('#loginOut').on('click', function () {
-        layui.layer.confirm('你确认退出吗?', {icon: 3, title:'提示'}, function(index){
+        layui.layer.confirm('你确认退出吗?', { icon: 3, title: '提示' }, function (index) {
             //do something
             localStorage.removeItem('token');
-            location.href='/login.html'
+            location.href = '/login.html'
             layui.layer.close(index);
-          });
+        });
     })
 })
 
@@ -29,6 +29,8 @@ function getUserInfo() {
 
 
 function renderAvatar(value) {
+    console.log(value);
+
     var name = value.nickname || value.username;
     $('#welcome').html('欢迎,' + name + '!')
     if (value.user_pic !== null) {
@@ -38,6 +40,6 @@ function renderAvatar(value) {
         var first = name[0].toUpperCase();
         $('.text-avatar').html(first).show()
         $('.layui-nav-img').hide();
-        
+
     }
 }
